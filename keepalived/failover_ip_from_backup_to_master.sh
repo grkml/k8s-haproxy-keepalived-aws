@@ -4,7 +4,7 @@
 # Description:
 #
 # moves the HAProxy service IP from one ec2 instance
-# to another
+# to another and starts HAProxy on that server
 #
 # Setup:
 #
@@ -25,10 +25,10 @@
 #
 # Usage:
 #
-# ./failover.sh <serviceIP> <failedEc2IP> <healthyEc2IP>
+# ./thisScript.sh <serviceIP> <failedEc2IP> <healthyEc2IP>
 #
 # Example:
-# ./assign_private_ip.sh '10.0.0.5' '10.0.0.10' '10.0.0.11'
+# ./thisScript.sh '10.0.0.5' '10.0.0.10' '10.0.0.11'
 #
 ###### ###### ###### ###### ###### ###### ###### ###### ###### ######
 
@@ -78,3 +78,5 @@ network:
       addresses:
       - ${LOAD_BALANCING_SERVICE_IP}/24' > /etc/netplan/keepalived_haproxy_service_ip.yaml"
 sudo netplan apply
+
+sudo service haproxy start
