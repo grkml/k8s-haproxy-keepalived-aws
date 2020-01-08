@@ -1,0 +1,9 @@
+# cat ${PWD}/secondary_ip.yaml | sudo tee /etc/netplan/secondary_ip.yaml
+# sudo netplan apply
+#
+network:
+  version: 2
+  ethernets:
+    eth0:
+      addresses:
+      - "10.0.0.5/24"
