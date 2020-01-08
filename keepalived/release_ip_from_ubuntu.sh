@@ -18,5 +18,4 @@ sudo /bin/bash -c " \
   rm -rf /etc/netplan/* && \
   mv /tmp/50-cloud-init.yaml /etc/netplan/50-cloud-init.yaml && \
   netplan apply"
-
 sudo service haproxy stop
